@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nivaas – Homes in Delhi NCR</title>
+<meta name="description" content="Verified apartments, villas and plots across Delhi NCR.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f6;--surface:#fff;--ink:#12212b;--muted:#5d6b73;--line:#dbe3e0;--brand:#0e4d5c;--brand-ink:#fff;--accent:#f0a830;--accent-ink:#2a1c00;--soft:#e4efec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d171c;--surface:#14232a;--ink:#e8f0ee;--muted:#9bb0b6;--line:#243942;--brand:#5fc2d6;--brand-ink:#04222a;--soft:#183039;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d171c;--surface:#14232a;--ink:#e8f0ee;--muted:#9bb0b6;--line:#243942;--brand:#5fc2d6;--brand-ink:#04222a;--soft:#183039;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:800 22px "Bricolage Grotesque",sans-serif;color:var(--brand);text-decoration:none;display:flex;gap:8px;align-items:center}
+.nav-r{display:flex;gap:6px;align-items:center}
+.nav-r a{color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:500}
+.nav-r a:hover{background:var(--soft)}
+.btn{border:0;background:var(--brand);color:var(--brand-ink);padding:11px 20px;border-radius:10px;font-weight:600;cursor:pointer}
+.btn.alt{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800}
+.hero p{color:var(--muted);font-size:18px;max-width:46ch;margin:18px 0 26px}
+.finder{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.finder .tabs{grid-column:1/-1;display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:10px;width:fit-content}
+.tabs button{border:0;background:transparent;padding:8px 20px;border-radius:8px;font-weight:600;cursor:pointer;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.fld{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+.fld input,.fld select,.form input,.form textarea{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--ink);font-size:15px;width:100%}
+.finder .btn{grid-column:1/-1}
+.hero-art{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/4.2;border:1px solid var(--line)}
+.hero-art svg,.card .art svg,.m-art svg{display:block;width:100%;height:100%}
+.stats{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap}
+.stats b{display:block;font:800 26px "Bricolage Grotesque",sans-serif;color:var(--brand)}
+.stats span{font-size:13px;color:var(--muted)}
+section{padding:44px 0}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:end;justify-content:space-between;margin-bottom:22px}
+.bar h2{font-size:clamp(26px,4vw,38px)}
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.chip{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:99px;cursor:pointer;font-weight:500;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.filters select{background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:8px 12px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.card .art{overflow:hidden;aspect-ratio:16/10;position:relative}
+.tag{position:absolute;left:12px;top:12px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px}
+.fav{position:absolute;right:10px;top:10px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(255,255,255,.92);cursor:pointer;font-size:18px;color:#c0392b;line-height:1}
+.card .body{padding:16px;display:flex;flex-direction:column;gap:6px}
+.price{font:800 22px "Bricolage Grotesque",sans-serif;color:var(--brand)}
+.price small{font:500 14px Figtree;color:var(--muted)}
+.card h3{font-size:17px}
+.loc{color:var(--muted);font-size:14px}
+.specs{display:flex;gap:14px;margin-top:6px;padding-top:10px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.empty{grid-column:1/-1;text-align:center;padding:50px 10px;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+.emi{background:var(--brand);color:var(--brand-ink);border-radius:24px;padding:34px;display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.emi h2{font-size:clamp(26px,4vw,38px);margin-bottom:10px}
+.emi label{display:block;margin:14px 0 4px;font-weight:500;display:flex;justify-content:space-between}
+.emi input[type=range]{width:100%;accent-color:var(--accent)}
+.res{background:rgba(255,255,255,.12);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.res .big{font:800 clamp(34px,5vw,52px) "Bricolage Grotesque",sans-serif}
+.res div{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.25);padding-top:8px;margin-top:6px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:4px;color:var(--ink);text-decoration:none}
+.cc:hover{border-color:var(--brand)}
+.cc b{font:700 19px "Bricolage Grotesque",sans-serif;color:var(--brand)}
+.cc span{color:var(--muted);font-size:14px}
+dialog{border:0;border-radius:20px;padding:0;width:min(760px,94vw);max-height:92vh;background:var(--surface);color:var(--ink);overflow:auto}
+dialog::backdrop{background:rgba(5,15,20,.6)}
+.m-art{position:relative;overflow:hidden;aspect-ratio:16/7}
+.m-body{padding:22px;display:grid;grid-template-columns:1.2fr 1fr;gap:24px}
+.close{position:sticky;top:10px;float:right;margin:10px 10px 0 0;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:var(--surface);cursor:pointer;font-size:20px;color:var(--ink)}
+.am{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.thumbs{display:flex;gap:8px;padding:10px 22px 0;overflow-x:auto}
+.thumbs button{flex:none;width:92px;border:2px solid transparent;border-radius:10px;padding:0;overflow:hidden;cursor:pointer;background:none;text-align:center;color:var(--muted);font-size:12px}
+.thumbs button i{position:relative;display:block;height:54px}
+.thumbs button[aria-pressed="true"]{border-color:var(--accent);color:var(--ink)}
+.am span{background:var(--soft);padding:5px 11px;border-radius:99px;font-size:13px}
+.form{display:flex;flex-direction:column;gap:10px;background:var(--bg);padding:16px;border-radius:14px}
+.err{color:#c0392b;font-size:13px;min-height:16px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:20;max-width:90vw}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:860px){.hero .wrap,.emi,.m-body{grid-template-columns:1fr}.hero-art{position:relative;aspect-ratio:16/9}.nav-r a.hide{display:none}.emi{padding:22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* photos */
+.hero-art img,.card .art img,.m-art img,.thumbs i img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease,transform .7s ease}
+.hero-art img.loaded,.card .art img.loaded,.m-art img.loaded,.thumbs i img.loaded{opacity:1}
+.card:hover .art img{transform:scale(1.06)}
+.tag,.fav{z-index:1}
+/* transitions */
+.card{animation:up .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*70ms);transition:transform .25s,box-shadow .25s,border-color .25s}
+#grid.noanim .card{animation:none}
+.card:hover{box-shadow:0 14px 30px rgba(0,0,0,.14);border-color:var(--brand)}
+.fav{transition:transform .2s}.fav:hover{transform:scale(1.15)}.fav:active{transform:scale(.9)}
+.btn{transition:transform .15s,filter .2s}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn:active{transform:scale(.97)}
+.chip,.tabs button,.nav-r a{transition:background .2s,color .2s,border-color .2s}
+nav{transition:box-shadow .3s}nav.sc{box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.hero-art{animation:float 7s ease-in-out infinite}
+dialog[open]{animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+dialog[open]::backdrop{animation:fade .3s ease}
+#mArt>*{animation:fade .45s ease}
+.cc{transition:transform .2s,border-color .2s}.cc:hover{transform:translateY(-3px)}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes float{50%{transform:translateY(-8px)}}
+/* help */
+.faq{display:grid;gap:10px;max-width:820px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 18px;transition:border-color .2s}
+.faq details[open]{border-color:var(--brand)}
+.faq summary{cursor:pointer;font-weight:600;padding:16px 28px 16px 0;list-style:none;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:12px;font-size:24px;color:var(--brand);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 16px;color:var(--muted);animation:fade .4s}
+#helpFab{position:fixed;right:18px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:6;width:54px;height:54px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font:800 24px "Bricolage Grotesque",sans-serif;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .2s}
+#helpFab:hover{transform:scale(1.1) rotate(-6deg)}
+.pop{padding:28px;display:flex;flex-direction:column;gap:12px}
+.pop h2{font-size:28px}.pop p{margin:0;color:var(--muted)}
+.pop .btn{text-align:center;text-decoration:none;display:block}
+.pop input{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px;width:100%;font-size:15px}
+#wel,#hlp{width:min(440px,94vw)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.card,.hero-art,dialog[open]{animation:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="logo" href="#top"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 12 13 3l10 9v11H3z" fill="currentColor"/><rect x="10" y="14" width="6" height="9" fill="#f0a830"/></svg>Nivaas</a>
+  <div class="nav-r"><a class="hide" href="#listings">Listings</a><a class="hide" href="#emi">EMI calculator</a><a class="hide" href="#help" id="navHelp">Help</a><a class="hide" href="#contact">Contact</a><a href="#listings" id="savedLink">Saved (<span id="savedCount">0</span>)</a><button class="btn ghost" id="theme" aria-label="Toggle theme">◐</button></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <h1>Find a home that fits your life and your budget.</h1>
+    <p>Verified apartments, villas and plots across Delhi, Gurugram, Noida and Ghaziabad. No middlemen, no hidden charges.</p>
+    <form class="finder" id="finder">
+      <div class="tabs" role="group" aria-label="Buy or rent"><button type="button" data-mode="buy" aria-pressed="true">Buy</button><button type="button" data-mode="rent" aria-pressed="false">Rent</button></div>
+      <label class="fld">Area or city<input id="q" placeholder="e.g. Noida, Sector 62"></label>
+      <label class="fld">Property type<select id="type"><option value="">All types</option><option>Apartment</option><option>Villa</option><option>Builder Floor</option><option>Plot</option></select></label>
+      <button class="btn alt" type="submit">Search homes</button>
+    </form>
+    <div class="stats"><div><b>10+</b><span>Curated listings</span></div><div><b>4</b><span>Cities covered</span></div><div><b>0%</b><span>Brokerage on rentals</span></div></div>
+  </div>
+  <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+</div></header>
+
+<section id="listings"><div class="wrap">
+  <div class="bar"><h2 id="count">Homes for you</h2>
+    <div class="filters">
+      <span id="bhk"></span>
+      <select id="budget" aria-label="Max budget"></select>
+      <select id="sort" aria-label="Sort"><option value="">Sort: Featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="area">Largest area</option></select>
+      <button class="chip" id="onlySaved" aria-pressed="false">♥ Saved only</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="emi"><div class="wrap"><div class="emi">
+  <div><h2>Plan your home loan</h2><p>Move the sliders to see your monthly EMI before you talk to a bank.</p>
+    <label for="lAmt">Loan amount <b id="vAmt"></b></label><input type="range" id="lAmt" min="1000000" max="50000000" step="500000" value="10000000">
+    <label for="lRate">Interest rate <b id="vRate"></b></label><input type="range" id="lRate" min="6" max="14" step="0.1" value="8.5">
+    <label for="lYrs">Tenure <b id="vYrs"></b></label><input type="range" id="lYrs" min="5" max="30" step="1" value="20">
+  </div>
+  <div class="res"><span>Monthly EMI</span><span class="big" id="rEmi"></span><div><span>Total interest</span><b id="rInt"></b></div><div><span>Total payable</span><b id="rTot"></b></div></div>
+</div></div></section>
+
+<section id="help"><div class="wrap"><div class="bar"><h2>Help and FAQs</h2><span class="loc">Quick answers before you call us</span></div>
+<div class="faq">
+<details><summary>Are the listings verified?</summary><p>Every listing is checked for ownership documents and a site visit before it goes live. Look for the Clear title tag on plots.</p></details>
+<details><summary>Do you charge brokerage?</summary><p>Rentals have zero brokerage. On purchases, our advisor fee is shared upfront, so there are no surprises later.</p></details>
+<details><summary>How do I book a site visit?</summary><p>Open any home, fill in your name and mobile number, and we call you within a day to fix a time that suits you.</p></details>
+<details><summary>How accurate is the EMI calculator?</summary><p>It gives a close estimate using the standard reducing-balance formula. Your bank's final rate and processing fees may differ.</p></details>
+<details><summary>What is the security deposit on rentals?</summary><p>Usually two months of rent, refundable when you move out. Exact terms are on each listing.</p></details>
+<details><summary>Can I save homes and see them later?</summary><p>Yes. Tap the heart on any card. Saved homes stay on this device and show under Saved only.</p></details>
+</div></div></section>
+<section id="contact"><div class="wrap"><div class="bar"><h2>Talk to us</h2><span class="loc">Open Mon to Sat, 9:30 am to 7 pm</span></div>
+<div class="contact-grid">
+<a class="cc" href="tel:+910000000000"><span>Call</span><b>+91 00000 00000</b><span>Speak to a property advisor</span></a>
+<a class="cc" href="https://wa.me/910000000000" target="_blank" rel="noopener"><span>WhatsApp</span><b>+91 00000 00000</b><span>Share your budget and area</span></a>
+<a class="cc" href="mailto:hello@nivaas.in"><span>Email</span><b>hello@nivaas.in</b><span>We reply within one working day</span></a>
+<div class="cc"><span>Office</span><b>Sector 18, Noida</b><span>Uttar Pradesh 201301</span></div>
+</div></div></section>
+
+<dialog id="dlg"><button class="close" id="dClose" aria-label="Close">×</button><div id="dBody"></div></dialog>
+<div id="toast" role="status"></div>
+
+<button id="helpFab" aria-label="Need help?">?</button>
+<dialog id="hlp"><button class="close" data-close aria-label="Close">×</button><div class="pop"><h2>Need a hand?</h2><p>Pick the quickest way to get an answer.</p><a class="btn" href="tel:+910000000000">Call an advisor</a><a class="btn alt" href="https://wa.me/910000000000" target="_blank" rel="noopener">Chat on WhatsApp</a><button class="btn ghost" id="hlpFaq" type="button">Read the FAQs</button></div></dialog>
+<dialog id="wel"><button class="close" data-close aria-label="Close">×</button><form class="pop" id="alertForm" novalidate><h2>Get new homes first</h2><p>Share your mobile number and we will send listings that match your budget before they go public.</p><input id="aP" inputmode="numeric" placeholder="10-digit mobile number" aria-label="Mobile number"><div class="err" id="aE"></div><button class="btn alt" type="submit">Send me alerts</button></form></dialog>
+<script>
+var P=[
+{id:1,t:"3 BHK high-rise apartment",loc:"Golf Course Road, Gurugram",type:"Apartment",mode:"buy",price:28500000,bd:3,ba:3,area:1850,tag:"Featured",h:196,am:["Clubhouse","Gym","Power backup","Covered parking","24x7 security"]},
+{id:2,t:"Spacious 3 BHK with park view",loc:"Sector 150, Noida",type:"Apartment",mode:"buy",price:14500000,bd:3,ba:3,area:1620,tag:"Ready to move",h:160,am:["Swimming pool","Jogging track","Kids play area","EV charging"]},
+{id:3,t:"Smart 2 BHK for first-time buyers",loc:"Greater Noida West",type:"Apartment",mode:"buy",price:6200000,bd:2,ba:2,area:1090,tag:"Best value",h:28,am:["Gym","Garden","Lift","Gated society"]},
+{id:4,t:"Independent builder floor",loc:"Dwarka Sector 12, Delhi",type:"Builder Floor",mode:"buy",price:18000000,bd:3,ba:3,area:1500,tag:"New",h:262,am:["Stilt parking","Terrace","Modular kitchen","Metro nearby"]},
+{id:5,t:"4 BHK luxury villa with lawn",loc:"Sohna Road, Gurugram",type:"Villa",mode:"buy",price:52000000,bd:4,ba:5,area:3400,tag:"Premium",h:340,am:["Private garden","Home theatre","Servant room","Solar panels"]},
+{id:6,t:"Corner residential plot",loc:"Yamuna Expressway",type:"Plot",mode:"buy",price:4800000,bd:0,ba:0,area:1800,tag:"Clear title",h:96,am:["30m road","Park facing","Boundary wall","Water connection"]},
+{id:7,t:"Furnished 2 BHK flat",loc:"Sector 62, Noida",type:"Apartment",mode:"rent",price:32000,bd:2,ba:2,area:1100,tag:"Furnished",h:180,am:["Metro nearby","AC in bedrooms","Wi-Fi ready","Parking"]},
+{id:8,t:"Modern 1 BHK near Cyber Hub",loc:"DLF Phase 3, Gurugram",type:"Apartment",mode:"rent",price:28000,bd:1,ba:1,area:640,tag:"Near offices",h:215,am:["Semi furnished","Lift","24x7 water","Security"]},
+{id:9,t:"Airy 3 BHK in a leafy colony",loc:"Vasant Kunj, Delhi",type:"Builder Floor",mode:"rent",price:85000,bd:3,ba:3,area:2100,tag:"Premium",h:300,am:["Balcony","Modular kitchen","Parking for 2","Park nearby"]},
+{id:10,t:"Compact studio for professionals",loc:"Indirapuram, Ghaziabad",type:"Apartment",mode:"rent",price:16000,bd:1,ba:1,area:480,tag:"Low deposit",h:50,am:["Furnished","Lift","Power backup","Market nearby"]}];
+/* ---- Photos (Unsplash). Replace any id with your own file, e.g. "images/home1.jpg" ---- */
+function U(id,w){return /^(https?:|images\/)/.test(id)?id:"https://images.unsplash.com/"+id+"?auto=format&fit=crop&w="+(w||800)+"&q=70"}
+function img(u){return u?'<img src="'+u+'" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onload="this.classList.add(\'loaded\')" onerror="this.remove()">':""}
+function art(h,seed,hero,u){return svgArt(h,seed,hero)+img(u)}
+function room(k,h){return roomSvg(k,h)+img(U(ROOMS[k]))}
+var IM={1:"photo-1545324418-cc1a3fa10c00",2:"photo-1560448204-e02f11c3d0e2",3:"photo-1522708323590-d24dbb6b0267",4:"photo-1570129477492-45c003edd2be",5:"photo-1512917774080-9991f1c4c750",6:"photo-1500382017468-9049fed747ef",7:"photo-1502672260266-1c1ef2d93688",8:"photo-1493809842364-78817add7ffb",9:"photo-1564013799919-ab600027ffc6",10:"photo-1560185007-cde436f6a4d0"};
+var ROOMS={living:"photo-1586023492125-27b2c045efd7",bed:"photo-1505693416388-ac5ce068fe85",kit:"photo-1556911220-e15b29be8c8f"},AREA=U("photo-1477959858617-67f85cf4f1df");
+P.forEach(function(p){p.img=U(IM[p.id])});
+var S={mode:"buy",bhk:0,fav:[],only:false},$=function(i){return document.getElementById(i)};
+try{S.fav=JSON.parse(localStorage.getItem("nv-fav")||"[]")}catch(e){S.fav=[]}
+function rnd(s){return function(){s=(s*9301+49297)%233280;return s/233280}}
+function svgArt(h,seed,hero){var r=rnd(seed*7+3),o='<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g'+seed+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="hsl('+h+',60%,78%)"/><stop offset="1" stop-color="hsl('+((h+30)%360)+',70%,92%)"/></linearGradient></defs><rect width="400" height="250" fill="url(#g'+seed+')"/><circle cx="'+(60+r()*280)+'" cy="55" r="22" fill="#f0a830" opacity=".85"/>';
+var n=hero?7:5,x=-10,i;for(i=0;i<n;i++){var w=hero?60+r()*40:70+r()*40,bh=hero?90+r()*130:60+r()*100,y=250-bh;o+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+bh+'" fill="hsl('+h+',45%,'+(22+r()*14)+'%)"/>';for(var wy=y+10;wy<246;wy+=16)for(var wx=x+8;wx<x+w-10;wx+=14)o+='<rect x="'+wx+'" y="'+wy+'" width="7" height="9" fill="'+(r()>.55?"#ffd98a":"rgba(255,255,255,.25)")+'"/>';x+=w+6}
+return o+'<rect y="236" width="400" height="14" fill="hsl('+h+',30%,22%)"/></svg>'}
+function money(p,m){if(m==="rent")return"₹"+p.toLocaleString("en-IN");return p>=1e7?"₹"+(p/1e7).toFixed(2).replace(/\.?0+$/,"")+" Cr":"₹"+(p/1e5).toFixed(0)+" L"}
+function inr(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+function emi(a,r,y){var m=r/1200,n=y*12;return a*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1)}
+function toast(t){var e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("on")},2600)}
+function saveFav(){try{localStorage.setItem("nv-fav",JSON.stringify(S.fav))}catch(e){}$("savedCount").textContent=S.fav.length}
+function budgets(){var b=S.mode==="buy"?[[0,"Any budget"],[10000000,"Up to ₹1 Cr"],[20000000,"Up to ₹2 Cr"],[30000000,"Up to ₹3 Cr"]]:[[0,"Any budget"],[20000,"Up to ₹20k"],[35000,"Up to ₹35k"],[60000,"Up to ₹60k"]];$("budget").innerHTML=b.map(function(x){return'<option value="'+x[0]+'">'+x[1]+"</option>"}).join("")}
+function bhkChips(){$("bhk").innerHTML=[0,1,2,3,4].map(function(n){return'<button class="chip" data-b="'+n+'" aria-pressed="'+(S.bhk===n)+'" style="margin-right:6px">'+(n?n+"+ BHK":"Any BHK")+"</button>"}).join("")}
+function render(){
+  $("grid").classList.toggle("noanim",!!render.skip);render.skip=0;
+  var q=$("q").value.trim().toLowerCase(),t=$("type").value,b=+$("budget").value,l=P.filter(function(p){return p.mode===S.mode&&(!t||p.type===t)&&(!b||p.price<=b)&&(!S.bhk||p.bd>=S.bhk)&&(!q||(p.loc+" "+p.t).toLowerCase().indexOf(q)>-1)&&(!S.only||S.fav.indexOf(p.id)>-1)});
+  var s=$("sort").value;if(s==="lo")l.sort(function(a,b){return a.price-b.price});if(s==="hi")l.sort(function(a,b){return b.price-a.price});if(s==="area")l.sort(function(a,b){return b.area-a.area});
+  $("count").textContent=l.length+(l.length===1?" home":" homes")+(S.mode==="buy"?" for sale":" for rent");
+  $("grid").innerHTML=l.length?l.map(function(p,ix){var f=S.fav.indexOf(p.id)>-1;return'<article class="card" style="--i:'+ix+'" data-id="'+p.id+'" tabindex="0" aria-label="'+p.t+'"><div class="art">'+art(p.h,p.id,0,p.img)+'<span class="tag">'+p.tag+'</span><button class="fav" data-fav="'+p.id+'" aria-label="Save" aria-pressed="'+f+'">'+(f?"♥":"♡")+'</button></div><div class="body"><div class="price">'+money(p.price,p.mode)+(p.mode==="rent"?" <small>/month</small>":"")+'</div><h3>'+p.t+'</h3><div class="loc">'+p.loc+'</div><div class="specs"><span>'+(p.bd?p.bd+" bed":p.type)+'</span>'+(p.ba?"<span>"+p.ba+" bath</span>":"")+"<span>"+p.area.toLocaleString("en-IN")+" sq ft</span></div></div></article>"}).join(""):'<div class="empty"><b>No homes match these filters.</b><br>Try a higher budget or clear the area search.</div>'}
+function roomSvg(k,h){var w="hsl("+h+",28%,88%)",f="hsl("+h+",22%,52%)",d="hsl("+h+",45%,30%)",l="hsl("+h+",40%,45%)",o='<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice"><rect width="400" height="250" fill="'+w+'"/><rect y="175" width="400" height="75" fill="'+f+'"/><rect y="172" width="400" height="5" fill="hsl('+h+',20%,40%)"/>';
+if(k==="living")o+='<rect x="30" y="30" width="120" height="100" fill="#cfe8f5" stroke="#fff" stroke-width="6"/><path d="M90 30v100M30 80h120" stroke="#fff" stroke-width="4"/><rect x="180" y="140" width="180" height="55" rx="10" fill="'+d+'"/><rect x="172" y="120" width="196" height="36" rx="10" fill="'+l+'"/><rect x="195" y="132" width="40" height="26" rx="6" fill="#f0a830"/><rect x="60" y="200" width="110" height="30" rx="4" fill="hsl('+h+',30%,75%)"/><rect x="210" y="40" width="90" height="60" fill="hsl('+h+',40%,70%)" stroke="#fff" stroke-width="4"/><rect x="372" y="110" width="6" height="70" fill="#333"/><circle cx="375" cy="104" r="14" fill="#ffd98a"/>';
+if(k==="bed")o+='<rect x="250" y="30" width="110" height="90" fill="#cfe8f5" stroke="#fff" stroke-width="6"/><rect x="60" y="70" width="190" height="60" rx="6" fill="'+d+'"/><rect x="50" y="120" width="210" height="70" rx="8" fill="#fff"/><rect x="50" y="150" width="210" height="40" fill="'+l+'"/><rect x="70" y="108" width="60" height="22" rx="8" fill="#f4f4f4"/><rect x="150" y="108" width="60" height="22" rx="8" fill="#f4f4f4"/><rect x="280" y="150" width="50" height="50" fill="'+d+'"/><circle cx="305" cy="138" r="12" fill="#ffd98a"/>';
+if(k==="kit")o+='<rect x="20" y="30" width="360" height="60" fill="'+d+'"/><path d="M110 30v60M200 30v60M290 30v60" stroke="'+w+'" stroke-width="2"/><rect x="20" y="120" width="360" height="60" fill="'+l+'"/><rect x="20" y="112" width="360" height="10" fill="#f4f4f4"/><circle cx="80" cy="108" r="8" fill="#222"/><circle cx="110" cy="108" r="8" fill="#222"/><rect x="150" y="100" width="6" height="12" fill="#999"/><rect x="130" y="195" width="140" height="22" fill="#f4f4f4"/><circle cx="150" cy="232" r="10" fill="#f0a830"/><circle cx="250" cy="232" r="10" fill="#f0a830"/>';
+return o+"</svg>"}
+function views(p){var v=[["Exterior",art(p.h,p.id,0,p.img)]];if(p.type!=="Plot")v.push(["Living",room("living",p.h)],["Bedroom",room("bed",p.h)],["Kitchen",room("kit",p.h)]);v.push(["Area view",art(p.h+20,p.id+50,0,AREA)]);return v}
+function open(id){
+  var p=P.filter(function(x){return x.id===id})[0],buy=p.mode==="buy",e=buy?emi(p.price*.8,8.5,20):0;
+  $("dBody").innerHTML='<div class="m-art" id="mArt">'+art(p.h,p.id,0,p.img)+'</div><div class="thumbs" id="thumbs">'+views(p).map(function(v,i){return'<button type="button" data-v="'+i+'" aria-pressed="'+(i===0)+'"><i>'+v[1]+'</i>'+v[0]+'</button>'}).join("")+'</div><div class="m-body"><div><div class="price">'+money(p.price,p.mode)+(buy?"":" <small>/month</small>")+'</div><h2 style="font-size:26px;margin:6px 0">'+p.t+'</h2><div class="loc">'+p.loc+'</div><div class="specs"><span>'+(p.bd?p.bd+" bed":p.type)+"</span>"+(p.ba?"<span>"+p.ba+" bath</span>":"")+"<span>"+p.area.toLocaleString("en-IN")+" sq ft</span></div><div class=\"am\">"+p.am.map(function(a){return"<span>"+a+"</span>"}).join("")+"</div>"+(buy?'<p class="loc">With 20% down payment at 8.5% for 20 years, your EMI is about <b style="color:var(--ink)">'+inr(e)+"/month</b>.</p>":'<p class="loc">Security deposit: 2 months rent. Zero brokerage.</p>')+'</div><form class="form" id="enq" novalidate><b>Book a visit</b><input id="eN" placeholder="Your name" autocomplete="name"><input id="eP" placeholder="10-digit mobile number" inputmode="numeric" autocomplete="tel"><textarea id="eM" rows="2" placeholder="Preferred day and time"></textarea><div class="err" id="eE"></div><button class="btn alt" type="submit">Request a visit</button></form></div>';
+  $("dlg").showModal();
+  $("thumbs").onclick=function(e){var b=e.target.closest("[data-v]");if(!b)return;$("mArt").innerHTML=views(p)[+b.dataset.v][1];this.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b)})};
+  $("enq").onsubmit=function(ev){ev.preventDefault();var n=$("eN").value.trim(),ph=$("eP").value.replace(/\D/g,"");if(n.length<2){$("eE").textContent="Enter your name.";return}if(!/^[6-9]\d{9}$/.test(ph)){$("eE").textContent="Enter a valid 10-digit Indian mobile number.";return}$("dlg").close();toast("Visit requested, "+n.split(" ")[0]+". We will call you within a day.")}}
+function calc(){var a=+$("lAmt").value,r=+$("lRate").value,y=+$("lYrs").value,e=emi(a,r,y);$("vAmt").textContent=inr(a);$("vRate").textContent=r.toFixed(1)+"%";$("vYrs").textContent=y+" years";$("rEmi").textContent=inr(e);$("rInt").textContent=inr(e*y*12-a);$("rTot").textContent=inr(e*y*12)}
+$("heroArt").innerHTML=art(196,99,true,U("photo-1545324418-cc1a3fa10c00",1100));
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){S.mode=b.dataset.mode;document.querySelectorAll(".tabs button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});budgets();render()}});
+$("finder").onsubmit=function(e){e.preventDefault();render();$("listings").scrollIntoView()};
+$("bhk").onclick=function(e){var b=e.target.closest("[data-b]");if(!b)return;S.bhk=+b.dataset.b;bhkChips();render()};
+["budget","sort","type"].forEach(function(i){$(i).onchange=render});$("q").oninput=render;
+$("onlySaved").onclick=function(){S.only=!S.only;this.setAttribute("aria-pressed",S.only);render()};
+$("grid").onclick=function(e){var f=e.target.closest("[data-fav]");if(f){e.stopPropagation();var id=+f.dataset.fav,i=S.fav.indexOf(id);i>-1?S.fav.splice(i,1):S.fav.push(id);saveFav();render.skip=1;render();return}var c=e.target.closest(".card");if(c)open(+c.dataset.id)};
+$("grid").onkeydown=function(e){if(e.key==="Enter"&&e.target.classList.contains("card"))open(+e.target.dataset.id)};
+$("dClose").onclick=function(){$("dlg").close()};$("dlg").onclick=function(e){if(e.target===this)this.close()};
+["lAmt","lRate","lYrs"].forEach(function(i){$(i).oninput=calc});
+$("theme").onclick=function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
+budgets();bhkChips();saveFav();render();calc();
+
+/* ---- Transitions, popups, help ---- */
+var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12}):null;
+document.querySelectorAll(".hero .wrap>*,section .bar,.emi,.contact-grid .cc,.faq details").forEach(function(el,i){el.classList.add("rv");el.style.transitionDelay=(i%4)*70+"ms";io?io.observe(el):el.classList.add("in")});
+addEventListener("scroll",function(){document.querySelector("nav").classList.toggle("sc",scrollY>8)},{passive:true});
+function validPhone(v){return /^[6-9]\d{9}$/.test(v.replace(/\D/g,""))}
+function openD(id){var d=$(id);if(!document.querySelector("dialog[open]"))d.showModal()}
+document.querySelectorAll("dialog").forEach(function(d){d.addEventListener("close",function(){d.classList.remove("out")});if(d.id!=="dlg")d.addEventListener("click",function(e){if(e.target===d)d.close()})});
+document.querySelectorAll("[data-close]").forEach(function(b){b.onclick=function(){b.closest("dialog").close()}});
+$("helpFab").onclick=function(){openD("hlp")};
+$("hlpFaq").onclick=function(){$("hlp").close();$("help").scrollIntoView()};
+$("navHelp").onclick=function(e){e.preventDefault();$("help").scrollIntoView()};
+$("alertForm").onsubmit=function(e){e.preventDefault();if(!validPhone($("aP").value)){$("aE").textContent="Enter a valid 10-digit Indian mobile number.";return}$("wel").close();toast("You are on the list. We will send matching homes soon.")};
+var seen=0;try{seen=sessionStorage.getItem("nv-wel")}catch(e){}
+if(!seen)setTimeout(function(){openD("wel");try{sessionStorage.setItem("nv-wel","1")}catch(e){}},4500);
+</script>
+</body>
+</html>
